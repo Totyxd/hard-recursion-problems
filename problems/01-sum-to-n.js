@@ -11,7 +11,14 @@ sumToN(9)  // returns 45
 sumToN(-8)  // returns null
 ***********************************************************************/
 
-// your code here
+const sumToN = (number) => {
+  if (number < 0) return null;
+
+  if (number === 1) return 1;
+
+  return number + sumToN(number - 1);
+
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

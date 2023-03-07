@@ -21,9 +21,29 @@ sort([0, 1, -3]); // [-3, 0, 1]
 sort([]); // []
 ***********************************************************************/
 
-function sort(nums, sorted = []) {
-  // your code here
+function smallest(array){
+  let smallest = array[0];
+
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    if (smallest > element){
+      smallest = element;
+    }
+  }
+
+  return smallest;
 }
+
+function sort(nums, sorted = []) {
+  if (nums.length === 0) return sorted;
+  else{
+    let small = smallest(nums);
+    sorted.push(small);
+    return sort(nums.slice(0, nums.indexOf(small)).concat((nums.slice(nums.indexOf(small) + 1))), sorted);
+  }
+}
+
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

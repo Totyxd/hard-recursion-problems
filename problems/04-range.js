@@ -10,8 +10,14 @@ range(3, 4); // [3]
 range(7, 6); // []
 ***********************************************************************/
 
-
-// your code here
+const range = (start, end) => {
+  if (start >= end) return [];
+  else{
+    const arr = range(start, end - 1);
+    arr.push(end - 1);
+    return arr;
+  }
+};
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/

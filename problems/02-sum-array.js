@@ -10,8 +10,12 @@ sumArray([0, 1, -3]); //  -2
 sumArray([1, 2, 3, 4, 5]); // 15
 ***********************************************************************/
 
-// your code here
-  
+const sumArray = (intArray, index=0) => {
+  if (index === intArray.length - 1) return intArray[intArray.length - 1];
+
+  return intArray[index] + sumArray(intArray, index+=1);
+}
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = sumArray;

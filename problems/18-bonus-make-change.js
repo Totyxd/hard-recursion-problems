@@ -58,8 +58,32 @@ function greedyMakeChange(target, coins = [25, 10, 5, 1]) {
   // your code here
 }
 
-function makeBetterChange(target, coins = [25, 10, 5, 1]) {
-  // your code here
+function makeBetterChange(amount, coins = [1, 5, 10, 25]) {
+  if (amount === 0) {
+    return [];
+  }
+
+  let bestChange = null;
+
+  for (let i = 0; i < coins.length; i++) {
+    if (coins[i] > amount) {
+      continue;
+    }
+
+    let change = makeBetterChange(amount - coins[i], coins);
+
+    if (change === null) {
+      continue;
+    }
+
+    change.push(coins[i]);
+
+    if (bestChange === null || change.length < bestChange.length) {
+      bestChange = change;
+    }
+  }
+
+  return bestChange;
 }
 
 

@@ -12,8 +12,15 @@ iceCreamShop(['moose tracks'], 'moose tracks'); // true
 iceCreamShop([], 'honey lavender'); // false
 ***********************************************************************/
 
-
-// your code here
+const iceCreamShop = (flavors, favorite) => {
+  if (flavors.length === 0) {
+    return false; // base case: we've checked all the flavors and didn't find a match
+  } else if (flavors[0] === favorite) {
+    return true; // base case: we found a match!
+  } else {
+    return iceCreamShop(flavors.slice(1), favorite); // recursive case: check the rest of the flavors
+  }
+}
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
